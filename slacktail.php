@@ -41,23 +41,14 @@ foreach ($config as $k => $v) {
                 $seek = 0;
             }
 
-            $fp = fopen($f, 'r');
+            $l = file_get_contents($f, false, null, $seek, 2048);
 
-            fseek($fp, $seek);
-
-            $l = fread($fp, 2056); // No more than 2046 b, security
-
-            if (strlen($l) == 2056) {
-                $l .= "\n\nDisplaying just 2056 bytes";
-
-                // find the size of the file
+            if (strlen($l) == 2048) {
+                $l .= "\n\nDisplaying just 2048 bytes";
                 $seek = $size;
-
             } else {
                 $seek += strlen($l);
             }
-
-            fclose($fp);
 
             file_put_contents($seek_file_path, $seek);
 
