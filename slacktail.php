@@ -34,6 +34,13 @@ foreach ($config as $k => $v) {
                 $seek = file_get_contents($seek_file_path);
             }
 
+            $size = filesize($f);
+
+            if ($seek > $size) {
+                // Truncated?
+                $seek = 0;
+            }
+
             $fp = fopen($f, 'r');
 
             fseek($fp, $seek);
@@ -44,7 +51,7 @@ foreach ($config as $k => $v) {
                 $l .= "\n\nDisplaying just 2056 bytes";
 
                 // find the size of the file
-                $seek = filesize($f);
+                $seek = $size;
 
             } else {
                 $seek += strlen($l);
