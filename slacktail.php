@@ -38,7 +38,7 @@ foreach ($config as $k => $v) {
 
             fseek($fp, $seek);
 
-            $l = fread($fp, 2056); // No more than 2046 ks, security
+            $l = fread($fp, 2056); // No more than 2046 b, security
 
             if (strlen($l) == 2056) {
                 $l .= "\n\nDisplaying just 2056 bytes";
