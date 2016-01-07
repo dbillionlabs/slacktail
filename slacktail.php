@@ -5,7 +5,7 @@ $storage_dir = __DIR__;
 $alert_errors = false;
 $output_errors = true;
 
-include './config.php';
+include __DIR__ . '/config.php';
 
 foreach ($config as $k => $v) {
 
