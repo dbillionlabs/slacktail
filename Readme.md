@@ -1,5 +1,5 @@
 # slacktail
-Easy PHP script to have your logs posted to Slack. Initial release. PRs and suggestions welcomed.
+Simple PHP script to have your logs tailed to Slack. Initial release. PRs and suggestions welcomed.
 
 # install
 
